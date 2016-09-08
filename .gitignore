@@ -1,1 +1,9 @@
 nodule_modules/
+
+.idea/workspace.xml
+
+.idea/modules.xml
+
+.idea/vcs.xml
+
+.idea/wms_bootstrap.iml
