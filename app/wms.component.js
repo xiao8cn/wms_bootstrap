@@ -14,15 +14,14 @@ var WmsComponent = (function () {
     function WmsComponent(router) {
         this.router = router;
     }
-    WmsComponent.prototype.buttonSelect = function () {
-        console.log(this);
-        //this.router.navigate(['wms_button']);
+    WmsComponent.prototype.buttonSelect = function (val) {
+        this.router.navigate([("wms_" + val)]);
     };
     WmsComponent = __decorate([
         core_1.Component({
             selector: 'wms-app',
             changeDetection: core_1.ChangeDetectionStrategy.OnPush,
-            template: "\n                <h1>Wms_test</h1>\n                <tabset [justified]=\"true\">\n                    <tab heading=\"Button\" (select)=\"buttonSelect()\"></tab>\n                    <tab heading=\"Alert\">Short Labeled Justified content</tab>\n                    <tab heading=\"Long Justified\">Long Labeled Justified content</tab>\n                </tabset>\n                <router-outlet></router-outlet>\n        "
+            template: "\n                <h1>Wms_test</h1>\n                <tabset [justified]=\"true\">\n                    <tab heading=\"Button\" (select)=\"buttonSelect('button')\"></tab>\n                    <tab heading=\"Alert\" (select)=\"buttonSelect('alert')\"></tab>\n                    <tab heading=\"Echarts\" (select)=\"buttonSelect('echarts')\"></tab>\n                </tabset>\n                <router-outlet></router-outlet>\n        "
         }), 
         __metadata('design:paramtypes', [router_1.Router])
     ], WmsComponent);

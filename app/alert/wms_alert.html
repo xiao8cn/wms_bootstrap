@@ -1,0 +1,7 @@
+<alert *ngFor="let item of list;let i = index" [type]="item.type" dismissible="true" (close)="closeAlert(i)">
+    {{item?.msg}}
+</alert>
+
+<alert dismissOnTimeout="3000">3s</alert>
+
+<button type="button" class="btn btn-primary" (click)="addAlert()">add Alert</button>

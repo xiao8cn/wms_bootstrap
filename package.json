@@ -23,6 +23,7 @@
     "@angular/upgrade": "2.0.0-rc.6",
     "bootstrap": "4.0.0-alpha.4",
     "core-js": "^2.4.0",
+    "echarts": "^3.2.3",
     "moment": "^2.14.1",
     "ng2-bootstrap": "^1.1.1",
     "reflect-metadata": "^0.1.3",

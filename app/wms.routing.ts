@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { WmsComponent }      from './wms.component';
 import { WmsButtonComponent } from "./button/wms.button.component";
+import { WmsAlertComponent } from "./alert/wms.alert.component";
+import { WmsEchartsComponent } from "./echarts/wms.echarts.component";
 
 const appRoutes: Routes = [
     {
@@ -17,6 +19,14 @@ const appRoutes: Routes = [
     {
         path:'wms_button',
         component : WmsButtonComponent
+    },
+    {
+        path : "wms_alert",
+        component : WmsAlertComponent
+    },
+    {
+        path : "wms_echarts",
+        component : WmsEchartsComponent
     }
 ];
 
