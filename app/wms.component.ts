@@ -12,7 +12,7 @@ import { Router } from "@angular/router";
                     <tab heading="Echarts" (select)="buttonSelect('echarts')"></tab>
                 </tabset>
                 <router-outlet></router-outlet>
-        `
+        `,
 })
 
 export class WmsComponent {

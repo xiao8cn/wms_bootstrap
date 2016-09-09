@@ -15,7 +15,6 @@ var core_1 = require("@angular/core");
 var echarts_service_1 = require("./echarts.service");
 var lineOption_1 = require("../entity/lineOption");
 var templateUrl = "app/echarts/wms_echarts.html";
-var Echarts = require("echarts");
 var WmsEchartsComponent = (function () {
     /**
      * 通过json 获取文件内容
@@ -26,16 +25,18 @@ var WmsEchartsComponent = (function () {
     }
     WmsEchartsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.chart = Echarts.init(document.getElementById("test"));
         this.echartService.getLineJson().subscribe(function (res) {
             res.data.filter(function (item) { return item.type === "line"; })
                 .map(function (item) {
                 lineOption_1.option.series[0].data = item.data;
-                _this.chart.setOption(lineOption_1.option);
+                _this.charts = { type: "line", option: lineOption_1.option, width: "1024px", height: "500px" };
+                console.log(_this.charts);
+                _this.chartTab("line");
             });
         });
     };
     WmsEchartsComponent.prototype.chartTab = function (type) {
+        this.charts.type = type;
     };
     WmsEchartsComponent = __decorate([
         core_1.Component({
