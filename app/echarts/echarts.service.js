@@ -13,7 +13,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  */
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
-var observable_1 = require("rxjs/observable");
+require("rxjs/operator/toPromise");
 var EchartService = (function () {
     function EchartService(http) {
         this.http = http;
@@ -21,19 +21,14 @@ var EchartService = (function () {
     }
     EchartService.prototype.getLineJson = function () {
         return this.http.get(this.linejson)
-            .map(this.extractData);
+            .toPromise()
+            .then(function (res) { return console.log(res); });
     };
     EchartService.prototype.extractData = function (res) {
         console.log(res);
         alert(res);
         var body = res.json();
         return body.data || {};
-    };
-    EchartService.prototype.handleError = function (error) {
-        var errMsg = (error.message) ? error.message :
-            error.status ? error.status + " - " + error.statusText : 'Server error';
-        console.log(errMsg);
-        return observable_1.Observable.throw(errMsg);
     };
     EchartService = __decorate([
         core_1.Injectable(), 
@@ -42,4 +37,9 @@ var EchartService = (function () {
     return EchartService;
 }());
 exports.EchartService = EchartService;
+var line = (function () {
+    function line() {
+    }
+    return line;
+}());
 //# sourceMappingURL=echarts.service.js.map
