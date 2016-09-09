@@ -5,7 +5,9 @@ import { Injectable } from "@angular/core";
 
 import { Http,Response } from "@angular/http";
 
-import "rxjs/operator/toPromise";
+import { Observable } from "rxjs/Observable";
+
+import { jsonData } from "../entity/jsonData";
 
 
 @Injectable()
@@ -15,21 +17,21 @@ export class EchartService{
 
     private linejson = "app/echarts/line.json";
 
-    getLineJson():Promise<line[]>{
+    getLineJson():Observable<jsonData>{
         return this.http.get(this.linejson)
-            .toPromise()
-            .then(res=>console.log(res));
+            .map(this.extractData);
     }
 
     private extractData(res:Response){
-        console.log(res);
-        alert(res);
         let body = res.json();
-        return body.data || {};
+        return body || {};
+    }
+
+    private handleError(error:any){
+        let errmsg = (error.message) ? error.message :
+            error.status ? `${error.message} - ${error.statusText}` : "server error";
+        return Observable.throw(errmsg);
     }
 
 }
 
-class line {
-    data:Array;
-}

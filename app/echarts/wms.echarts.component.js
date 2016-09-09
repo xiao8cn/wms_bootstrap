@@ -13,6 +13,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var echarts_service_1 = require("./echarts.service");
+var lineOption_1 = require("../entity/lineOption");
 var templateUrl = "app/echarts/wms_echarts.html";
 var Echarts = require("echarts");
 var WmsEchartsComponent = (function () {
@@ -23,27 +24,15 @@ var WmsEchartsComponent = (function () {
         this.echartService = echartService;
     }
     WmsEchartsComponent.prototype.ngOnInit = function () {
-        this.echartService.getLineJson();
+        var _this = this;
         this.chart = Echarts.init(document.getElementById("test"));
-        var option = {
-            xAxis: {
-                type: 'category',
-                boundaryGap: false,
-                data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
-            },
-            yAxis: {
-                type: 'value'
-            },
-            series: [
-                {
-                    name: '邮件营销',
-                    type: 'line',
-                    stack: '总量',
-                    data: [120, 132, 101, 134, 90, 230, 210]
-                },
-            ]
-        };
-        this.chart.setOption(option);
+        this.echartService.getLineJson().subscribe(function (res) {
+            res.data.filter(function (item) { return item.type === "line"; })
+                .map(function (item) {
+                lineOption_1.option.series[0].data = item.data;
+                _this.chart.setOption(lineOption_1.option);
+            });
+        });
     };
     WmsEchartsComponent = __decorate([
         core_1.Component({
