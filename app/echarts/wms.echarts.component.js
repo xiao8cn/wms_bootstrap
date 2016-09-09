@@ -12,12 +12,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var echarts_service_1 = require("./echarts.service");
 var templateUrl = "app/echarts/wms_echarts.html";
 var Echarts = require("echarts");
 var WmsEchartsComponent = (function () {
-    function WmsEchartsComponent() {
+    /**
+     * 通过json 获取文件内容
+     */
+    function WmsEchartsComponent(echartService) {
+        this.echartService = echartService;
     }
     WmsEchartsComponent.prototype.ngOnInit = function () {
+        this.echartService.getLineJson();
         this.chart = Echarts.init(document.getElementById("test"));
         var option = {
             xAxis: {
@@ -43,7 +49,7 @@ var WmsEchartsComponent = (function () {
         core_1.Component({
             templateUrl: templateUrl,
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [echarts_service_1.EchartService])
     ], WmsEchartsComponent);
     return WmsEchartsComponent;
 }());

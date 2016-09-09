@@ -4,6 +4,8 @@
 
 import { Component,OnInit } from "@angular/core";
 
+import { EchartService } from "./echarts.service";
+
 let templateUrl = "app/echarts/wms_echarts.html";
 
 var Echarts = require("echarts");
@@ -14,9 +16,18 @@ var Echarts = require("echarts");
 
 export class WmsEchartsComponent implements OnInit{
 
+    /**
+     * 通过json 获取文件内容
+     */
+    constructor(private echartService:EchartService){}
+
+
     public chart : any;
 
     ngOnInit(): void {
+
+        this.echartService.getLineJson();
+
         this.chart = Echarts.init(document.getElementById("test"));
 
         let option = {
