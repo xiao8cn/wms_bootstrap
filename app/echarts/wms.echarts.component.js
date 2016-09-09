@@ -22,6 +22,7 @@ var WmsEchartsComponent = (function () {
      */
     function WmsEchartsComponent(echartService) {
         this.echartService = echartService;
+        this.radioModel = "left";
     }
     WmsEchartsComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -33,6 +34,8 @@ var WmsEchartsComponent = (function () {
                 _this.chart.setOption(lineOption_1.option);
             });
         });
+    };
+    WmsEchartsComponent.prototype.chartTab = function (type) {
     };
     WmsEchartsComponent = __decorate([
         core_1.Component({

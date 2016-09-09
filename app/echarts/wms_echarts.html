@@ -1,5 +1,9 @@
-<div>
-
-
+<div class="col-md-12">
+    <br/>
+    <div class="btn-group">
+        <label class="btn btn-success" [(ngModel)]="radioModel" btnRadio="left" uncheckable (click)="chartTab('line')">line</label>
+        <label class="btn btn-success" [(ngModel)]="radioModel" btnRadio="middle" uncheckable (click)="chartTab('bar')">bar</label>
+        <label class="btn btn-success" [(ngModel)]="radioModel" btnRadio="right" uncheckable (click)="chartTab('pie')">pie</label>
+    </div>
     <div id="test" style="windth:100%;height:500px;"></div>
 </div>

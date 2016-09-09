@@ -37,6 +37,11 @@ export class WmsEchartsComponent implements OnInit{
                     });
             }
         )
+    }
+
+    public radioModel:string = "left";
+
+    chartTab(type:string):void{
 
     }
 
