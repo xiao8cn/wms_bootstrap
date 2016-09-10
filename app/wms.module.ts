@@ -26,7 +26,7 @@ import { TabsModule,ButtonsModule,AlertModule } from "ng2-bootstrap/ng2-bootstra
                     HttpModule ],
     declarations: [ WmsComponent,WmsButtonComponent,WmsAlertComponent,WmsEchartsComponent,EchartsComponent ],
     bootstrap:    [ WmsComponent ],
-    providers : [appRoutingProviders,EchartService]
+    providers : [appRoutingProviders,EchartService],
 })
 
 export class WmsModule {}

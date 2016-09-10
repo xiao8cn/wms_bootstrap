@@ -2,7 +2,7 @@
  * Created by xiao on 16/9/9.
  */
 
-import { Component,OnInit,OnChanges} from "@angular/core";
+import { Component,OnInit} from "@angular/core";
 
 import { EchartService } from "./echarts.service";
 import { option } from "../entity/lineOption";
@@ -20,26 +20,35 @@ export class WmsEchartsComponent implements OnInit{
      */
     constructor(private echartService:EchartService){}
 
-    public charts : Echarts;
+    chart : Echarts;
+
+    public radioModel:string = "left";
 
     ngOnInit(): void {
+        let success = false;
         this.echartService.getLineJson().subscribe(
             res=>{
                 res.data.filter(item=>item.type==="line")
                     .map(item=>{
                         option.series[0].data = item.data;
-                        this.charts = {type:"line",option:option,width:"1024px",height:"500px"};
-                        console.log(this.charts);
-                        this.chartTab("line");
                     });
             }
-        )
+        );
+        this.chart = {type:"line",option:option,width:"1024px",height:"500px"};
     }
 
-    public radioModel:string = "left";
-
     chartTab(type:string):void{
-        this.charts.type = type;
+        let { option,width,height} = this.chart;
+
+        setTimeout(()=>{
+            this.chart = {
+                type:type,
+                option:option,
+                width:width,
+                height:height
+            }
+        },1000);
+
     }
 
 };

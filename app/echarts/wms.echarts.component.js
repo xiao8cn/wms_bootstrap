@@ -24,19 +24,26 @@ var WmsEchartsComponent = (function () {
         this.radioModel = "left";
     }
     WmsEchartsComponent.prototype.ngOnInit = function () {
-        var _this = this;
+        var success = false;
         this.echartService.getLineJson().subscribe(function (res) {
             res.data.filter(function (item) { return item.type === "line"; })
                 .map(function (item) {
                 lineOption_1.option.series[0].data = item.data;
-                _this.charts = { type: "line", option: lineOption_1.option, width: "1024px", height: "500px" };
-                console.log(_this.charts);
-                _this.chartTab("line");
             });
         });
+        this.chart = { type: "line", option: lineOption_1.option, width: "1024px", height: "500px" };
     };
     WmsEchartsComponent.prototype.chartTab = function (type) {
-        this.charts.type = type;
+        var _this = this;
+        var _a = this.chart, option = _a.option, width = _a.width, height = _a.height;
+        setTimeout(function () {
+            _this.chart = {
+                type: type,
+                option: option,
+                width: width,
+                height: height
+            };
+        }, 1000);
     };
     WmsEchartsComponent = __decorate([
         core_1.Component({
