@@ -32,7 +32,12 @@ var WmsModule = (function () {
                 forms_1.FormsModule,
                 ng2_bootstrap_1.AlertModule,
                 http_1.HttpModule],
-            declarations: [wms_component_1.WmsComponent, wms_button_component_1.WmsButtonComponent, wms_alert_component_1.WmsAlertComponent, wms_echarts_component_1.WmsEchartsComponent, echarts_component_1.EchartsComponent],
+            declarations: [wms_component_1.WmsComponent,
+                wms_button_component_1.WmsButtonComponent,
+                wms_alert_component_1.WmsAlertComponent,
+                wms_echarts_component_1.WmsEchartsComponent,
+                echarts_component_1.EchartsComponent
+            ],
             bootstrap: [wms_component_1.WmsComponent],
             providers: [wms_routing_1.appRoutingProviders, echarts_service_1.EchartService],
         }), 

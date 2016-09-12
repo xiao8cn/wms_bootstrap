@@ -5,7 +5,7 @@ import { Router } from "@angular/router";
     selector: 'wms-app',
     changeDetection: ChangeDetectionStrategy.OnPush,
     template: `
-                <h1>Wms_test</h1>
+                <h2 class="text-center">Angular2 & ng2-bootstrap 制作 <small>jiaoju.wu@qq.com</small></h2>
                 <tabset [justified]="true">
                     <tab heading="Button" (select)="buttonSelect('button')"></tab>
                     <tab heading="Alert" (select)="buttonSelect('alert')"></tab>

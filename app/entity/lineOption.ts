@@ -2,7 +2,7 @@
  * Created by xiao on 16/9/9.
  */
 
-export const option:any = {
+export const lineOption:any = {
         xAxis: {
             type: 'category',
             boundaryGap: false,

@@ -18,9 +18,19 @@ var EchartService = (function () {
     function EchartService(http) {
         this.http = http;
         this.linejson = "app/echarts/line.json";
+        this.mapjson = "app/map/china.json";
+        this.piejson = "app/echarts/pie.json";
     }
     EchartService.prototype.getLineJson = function () {
         return this.http.get(this.linejson)
+            .map(this.extractData);
+    };
+    EchartService.prototype.getMapJson = function () {
+        return this.http.get(this.mapjson)
+            .map(this.extractData);
+    };
+    EchartService.prototype.getPieJson = function () {
+        return this.http.get(this.piejson)
             .map(this.extractData);
     };
     EchartService.prototype.extractData = function (res) {

@@ -21,7 +21,7 @@ var WmsComponent = (function () {
         core_1.Component({
             selector: 'wms-app',
             changeDetection: core_1.ChangeDetectionStrategy.OnPush,
-            template: "\n                <h1>Wms_test</h1>\n                <tabset [justified]=\"true\">\n                    <tab heading=\"Button\" (select)=\"buttonSelect('button')\"></tab>\n                    <tab heading=\"Alert\" (select)=\"buttonSelect('alert')\"></tab>\n                    <tab heading=\"Echarts\" (select)=\"buttonSelect('echarts')\"></tab>\n                </tabset>\n                <router-outlet></router-outlet>\n        ",
+            template: "\n                <h2 class=\"text-center\">Angular2 & ng2-bootstrap \u5236\u4F5C <small>jiaoju.wu@qq.com</small></h2>\n                <tabset [justified]=\"true\">\n                    <tab heading=\"Button\" (select)=\"buttonSelect('button')\"></tab>\n                    <tab heading=\"Alert\" (select)=\"buttonSelect('alert')\"></tab>\n                    <tab heading=\"Echarts\" (select)=\"buttonSelect('echarts')\"></tab>\n                </tabset>\n                <router-outlet></router-outlet>\n        ",
         }), 
         __metadata('design:paramtypes', [router_1.Router])
     ], WmsComponent);

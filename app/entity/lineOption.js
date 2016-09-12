@@ -2,7 +2,7 @@
  * Created by xiao on 16/9/9.
  */
 "use strict";
-exports.option = {
+exports.lineOption = {
     xAxis: {
         type: 'category',
         boundaryGap: false,

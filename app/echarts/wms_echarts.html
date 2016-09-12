@@ -4,7 +4,8 @@
         <label class="btn btn-success" [(ngModel)]="radioModel" btnRadio="left" uncheckable (click)="chartTab('line')">line</label>
         <label class="btn btn-success" [(ngModel)]="radioModel" btnRadio="middle" uncheckable (click)="chartTab('bar')">bar</label>
         <label class="btn btn-success" [(ngModel)]="radioModel" btnRadio="right" uncheckable (click)="chartTab('pie')">pie</label>
+        <label class="btn btn-success" [(ngModel)]="radioModel" btnRadio="map" uncheckable (click)="chartTab('map')">map</label>
     </div>
-    <wms-chart [chart]="chart"></wms-chart>
-    <div id="test" style="width: 100%;height: 500px;"></div>
+    <p *ngIf="chart">{{chart.type}}</p>
+    <div id="test" style="width: 100%;height: 424px;"></div>
 </div>

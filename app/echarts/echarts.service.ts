@@ -3,7 +3,7 @@
  */
 import { Injectable } from "@angular/core";
 
-import { Http,Response } from "@angular/http";
+import { Http,Response,Headers,RequestOptions } from "@angular/http";
 
 import { Observable } from "rxjs/Observable";
 
@@ -16,9 +16,21 @@ export class EchartService{
     constructor(private http:Http){}
 
     private linejson = "app/echarts/line.json";
+    private mapjson = "app/map/china.json";
+    private piejson = "app/echarts/pie.json";
 
     getLineJson():Observable<jsonData>{
         return this.http.get(this.linejson)
+            .map(this.extractData);
+    }
+
+    getMapJson():Observable<jsonData>{
+        return this.http.get(this.mapjson)
+            .map(this.extractData);
+    }
+
+    getPieJson():Observable<jsonData>{
+        return this.http.get(this.piejson)
             .map(this.extractData);
     }
 
