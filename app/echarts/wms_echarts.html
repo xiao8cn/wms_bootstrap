@@ -7,5 +7,6 @@
         <label class="btn btn-success" [(ngModel)]="radioModel" btnRadio="map" uncheckable (click)="chartTab('map')">map</label>
     </div>
     <p *ngIf="chart">{{chart.type}}</p>
+    <p *ngIf="name">{{name}}</p>
     <div id="test" style="width: 100%;height: 424px;"></div>
 </div>

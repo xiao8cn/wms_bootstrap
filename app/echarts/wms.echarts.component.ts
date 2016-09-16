@@ -18,6 +18,7 @@ var echarts = require("echarts");
     templateUrl : templateUrl,
 })
 
+
 export class WmsEchartsComponent implements OnInit{
     /**
      * 通过json 获取文件内容
@@ -30,7 +31,31 @@ export class WmsEchartsComponent implements OnInit{
 
     public radioModel:string = "left";
 
+    name : string;
+
     ngOnInit(): void {
+
+        var profilingZone = (function () {
+            var time = 0,
+                timer = performance ?
+                    performance.now.bind(performance) :
+                    Date.now.bind(Date);
+            return {
+                beforeTask: function () {
+                    this.start = timer();
+                },
+                afterTask: function () {
+                    time += timer() - this.start;
+                },
+                time: function () {
+                    return Math.floor(time*100) / 100 + 'ms';
+                },
+                reset: function () {
+                    time = 0;
+                }
+            };
+        }());
+
         let success = false;
         this.myChart = echarts.init(document.getElementById("test"));
         this.echartService.getLineJson().subscribe(
@@ -43,6 +68,7 @@ export class WmsEchartsComponent implements OnInit{
                     });
                 }
         )
+
     }
 
     chartTab(type:string):void{
