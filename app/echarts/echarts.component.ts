@@ -21,9 +21,10 @@ export class EchartsComponent{
     ngOnChanges(changes: SimpleChanges): void {
         this.chart = changes['chart'].currentValue;
         if(this.chart){
-            this.myChart = echarts.init(document.getElementById("c1"));
-            console.log(this.chart.option);
-            this.myChart.setOption(this.chart.option);
+            console.log(this.chart);
+            //this.myChart = echarts.init(document.getElementById("mc1"));
+            //console.log(this.chart.option);
+            //this.myChart.setOption(this.chart.option);
         }
     }
 

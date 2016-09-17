@@ -21,9 +21,7 @@ var EchartsComponent = (function () {
     EchartsComponent.prototype.ngOnChanges = function (changes) {
         this.chart = changes['chart'].currentValue;
         if (this.chart) {
-            this.myChart = echarts.init(document.getElementById("c1"));
-            console.log(this.chart.option);
-            this.myChart.setOption(this.chart.option);
+            console.log(this.chart);
         }
     };
     __decorate([

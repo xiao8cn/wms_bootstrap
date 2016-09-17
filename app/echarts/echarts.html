@@ -1,3 +1,6 @@
 <div *ngIf="chart">
     <h1>{{chart.type}}</h1>
+    <div *ngIf="chart" id="mc1" [ngStyle]="{'width': chart.width,'height':chart.height}">
+        <p>{{chart.width}}</p>
+    </div>
 </div>

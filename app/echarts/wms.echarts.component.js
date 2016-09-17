@@ -14,27 +14,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var echarts_service_1 = require("./echarts.service");
 var lineOption_1 = require("../entity/lineOption");
-var mapOption_1 = require("../entity/mapOption");
 var pieOption_1 = require("../entity/pieOption");
 var templateUrl = "app/echarts/wms_echarts.html";
-var echarts = require("echarts");
+//var echarts = require("echarts");
 var WmsEchartsComponent = (function () {
     /**
      * 通过json 获取文件内容
      */
     function WmsEchartsComponent(echartService) {
         this.echartService = echartService;
+        //myChart : any;
         this.radioModel = "left";
     }
     WmsEchartsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.myChart = echarts.init(document.getElementById("test"));
+        //this.myChart = echarts.init(document.getElementById("test"));
         this.echartService.getLineJson().subscribe(function (res) {
             res.data.filter(function (item) { return item.type === "line"; })
                 .map(function (item) {
                 lineOption_1.lineOption.series[0].data = item.data;
                 _this.chart = { type: "line", option: lineOption_1.lineOption, width: "1024px", height: "500px" };
-                _this.myChart.setOption(lineOption_1.lineOption);
+                //this.myChart.setOption(lineOption);
             });
         });
     };
@@ -52,19 +52,19 @@ var WmsEchartsComponent = (function () {
                 this.chart.option = lineOption_1.lineOption;
                 this.chart.option.series[0].type = "line";
                 this.chart.option.xAxis.boundaryGap = false;
-                this.myChart.setOption(this.chart.option, true);
+                //this.myChart.setOption(this.chart.option,true);
                 break;
             case "bar":
                 this.chart.option = lineOption_1.lineOption;
                 this.chart.option.series[0].type = "bar";
                 this.chart.option.xAxis.boundaryGap = true;
-                this.myChart.setOption(this.chart.option, true);
+                //this.myChart.setOption(this.chart.option,true);
                 break;
             case "pie":
                 this.echartService.getPieJson().subscribe(function (res) {
                     _this.chart.option = pieOption_1.pieOption;
                     _this.chart.option.series[0].data = res.data;
-                    _this.myChart.setOption(_this.chart.option, true);
+                    //this.myChart.setOption(this.chart.option,true);
                 });
                 break;
             case "map":
@@ -72,8 +72,8 @@ var WmsEchartsComponent = (function () {
                  * 地图echarts
                  */
                 this.echartService.getMapJson().subscribe(function (res) {
-                    echarts.registerMap('china', res);
-                    _this.myChart.setOption(mapOption_1.mapOption, true);
+                    // echarts.registerMap('china',res);
+                    // this.myChart.setOption(mapOption,true);
                 });
                 break;
             default: alert("未知图表");
