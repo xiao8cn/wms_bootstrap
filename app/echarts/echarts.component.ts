@@ -1,7 +1,7 @@
 /**
  * Created by xiao on 16/9/9.
  */
-import { Component,Input } from "@angular/core";
+import { Component,Input,SimpleChanges } from "@angular/core";
 
 import { Echarts } from "../entity/echarts";
 
@@ -18,13 +18,14 @@ export class EchartsComponent{
     @Input() chart:Echarts;
     myChart:any;
 
-    /*ngOnChanges(changes: SimpleChanges): void {
-        console.log("change");
+    ngOnChanges(changes: SimpleChanges): void {
         this.chart = changes['chart'].currentValue;
-        this.myChart = echarts.init(document.getElementById("test"));
-        console.log(this.chart.option);
-        this.myChart.setOption(this.chart.option);
-    }*/
+        if(this.chart){
+            this.myChart = echarts.init(document.getElementById("c1"));
+            console.log(this.chart.option);
+            this.myChart.setOption(this.chart.option);
+        }
+    }
 
 
 

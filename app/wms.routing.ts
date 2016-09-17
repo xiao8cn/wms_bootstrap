@@ -26,7 +26,8 @@ const appRoutes: Routes = [
     },
     {
         path : "wms_echarts",
-        component : WmsEchartsComponent
+        component : WmsEchartsComponent,
+
     }
 ];
 

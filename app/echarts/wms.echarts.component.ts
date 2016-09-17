@@ -34,29 +34,6 @@ export class WmsEchartsComponent implements OnInit{
     name : string;
 
     ngOnInit(): void {
-
-        var profilingZone = (function () {
-            var time = 0,
-                timer = performance ?
-                    performance.now.bind(performance) :
-                    Date.now.bind(Date);
-            return {
-                beforeTask: function () {
-                    this.start = timer();
-                },
-                afterTask: function () {
-                    time += timer() - this.start;
-                },
-                time: function () {
-                    return Math.floor(time*100) / 100 + 'ms';
-                },
-                reset: function () {
-                    time = 0;
-                }
-            };
-        }());
-
-        let success = false;
         this.myChart = echarts.init(document.getElementById("test"));
         this.echartService.getLineJson().subscribe(
             res=>{
@@ -66,9 +43,7 @@ export class WmsEchartsComponent implements OnInit{
                         this.chart = {type:"line",option:lineOption,width:"1024px",height:"500px"};
                         this.myChart.setOption(lineOption);
                     });
-                }
-        )
-
+            })
     }
 
     chartTab(type:string):void{

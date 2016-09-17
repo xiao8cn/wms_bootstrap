@@ -18,6 +18,14 @@ var echarts = require("echarts");
 var EchartsComponent = (function () {
     function EchartsComponent() {
     }
+    EchartsComponent.prototype.ngOnChanges = function (changes) {
+        this.chart = changes['chart'].currentValue;
+        if (this.chart) {
+            this.myChart = echarts.init(document.getElementById("c1"));
+            console.log(this.chart.option);
+            this.myChart.setOption(this.chart.option);
+        }
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', echarts_1.Echarts)

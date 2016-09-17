@@ -28,26 +28,6 @@ var WmsEchartsComponent = (function () {
     }
     WmsEchartsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        var profilingZone = (function () {
-            var time = 0, timer = performance ?
-                performance.now.bind(performance) :
-                Date.now.bind(Date);
-            return {
-                beforeTask: function () {
-                    this.start = timer();
-                },
-                afterTask: function () {
-                    time += timer() - this.start;
-                },
-                time: function () {
-                    return Math.floor(time * 100) / 100 + 'ms';
-                },
-                reset: function () {
-                    time = 0;
-                }
-            };
-        }());
-        var success = false;
         this.myChart = echarts.init(document.getElementById("test"));
         this.echartService.getLineJson().subscribe(function (res) {
             res.data.filter(function (item) { return item.type === "line"; })

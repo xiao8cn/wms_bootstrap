@@ -24,7 +24,7 @@ var appRoutes = [
     },
     {
         path: "wms_echarts",
-        component: wms_echarts_component_1.WmsEchartsComponent
+        component: wms_echarts_component_1.WmsEchartsComponent,
     }
 ];
 exports.appRoutingProviders = [];

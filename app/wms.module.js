@@ -18,6 +18,7 @@ var wms_button_component_1 = require("./button/wms.button.component");
 var wms_alert_component_1 = require("./alert/wms.alert.component");
 var wms_echarts_component_1 = require("./echarts/wms.echarts.component");
 var echarts_component_1 = require("./echarts/echarts.component");
+var demo1_1 = require("./demo/demo1");
 var echarts_service_1 = require("./echarts/echarts.service");
 var ng2_bootstrap_1 = require("ng2-bootstrap/ng2-bootstrap");
 var WmsModule = (function () {
@@ -36,7 +37,7 @@ var WmsModule = (function () {
                 wms_button_component_1.WmsButtonComponent,
                 wms_alert_component_1.WmsAlertComponent,
                 wms_echarts_component_1.WmsEchartsComponent,
-                echarts_component_1.EchartsComponent
+                echarts_component_1.EchartsComponent, demo1_1.NgZoneDemoComponent
             ],
             bootstrap: [wms_component_1.WmsComponent],
             providers: [wms_routing_1.appRoutingProviders, echarts_service_1.EchartService],

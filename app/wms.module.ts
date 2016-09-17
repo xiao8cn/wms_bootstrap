@@ -12,6 +12,8 @@ import { WmsAlertComponent } from "./alert/wms.alert.component";
 import { WmsEchartsComponent } from "./echarts/wms.echarts.component";
 import { EchartsComponent } from "./echarts/echarts.component";
 
+import { NgZoneDemoComponent} from "./demo/demo1";
+
 import { EchartService } from "./echarts/echarts.service";
 
 import { TabsModule,ButtonsModule,AlertModule } from "ng2-bootstrap/ng2-bootstrap";
@@ -28,7 +30,7 @@ import { TabsModule,ButtonsModule,AlertModule } from "ng2-bootstrap/ng2-bootstra
                     WmsButtonComponent,
                     WmsAlertComponent,
                     WmsEchartsComponent,
-                    EchartsComponent
+                    EchartsComponent,NgZoneDemoComponent
                     ],
     bootstrap:    [ WmsComponent ],
     providers : [appRoutingProviders,EchartService],
